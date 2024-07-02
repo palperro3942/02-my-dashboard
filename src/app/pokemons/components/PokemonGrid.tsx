@@ -1,5 +1,3 @@
-import Image from "next/image"
-import { PokemonsResponse } from "../interfaces/pokemons-response"
 import { SimplePokemon } from "../interfaces/simple-pokemon"
 import { PokemonCard } from "./PokemonCard";
 
