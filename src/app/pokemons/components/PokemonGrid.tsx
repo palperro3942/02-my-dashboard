@@ -1,16 +1,18 @@
 import Image from "next/image"
 import { PokemonsResponse } from "../interfaces/pokemons-response"
+import { SimplePokemon } from "../interfaces/simple-pokemon"
+import { PokemonCard } from "./PokemonCard";
 
-export const PokemonGrid = (pokemons:PokemonsResponse) => {
+interface Props {
+    pokemons:SimplePokemon[];
+}
+
+export const PokemonGrid = ({pokemons}: Props) => {
     return (
         <div className="flex flex-wrap gap-10 items-center justify-center">
             {
                 pokemons.map(item => (
-                    <Image src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${item.id}.svg`}
-                        width={100}
-                        height={100}
-                        alt={item.name}
-                    />
+                    <PokemonCard key={item.id} pokemon={item}/>
                 ))
             }
         </div>
