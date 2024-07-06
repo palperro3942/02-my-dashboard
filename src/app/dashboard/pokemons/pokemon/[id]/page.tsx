@@ -25,11 +25,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 
+export async function generateStaticParams() {
+  const staticPokemonsArray = Array.from({ length: 151 }).map((v, i) => `${i + 1}`);
+  return staticPokemonsArray.map(id => ({ id: id }))
+}
+
 const getPokemon = async (id: string): Promise<Pokemon> => {
 
   try {
-    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, { cache: "force-cache" }).then(res => res.json());
+    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
+      //cache: "force-cache",
+      next: { revalidate: 60 * 60 * 24 }
+    }).then(res => res.json());
     return pokemon;
+
   } catch (error) {
     notFound();
   }

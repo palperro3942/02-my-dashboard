@@ -8,7 +8,7 @@ export default function NotFound() {
                 <div className="w-full lg:w-1/2 mx-8">
                     <div className="text-7xl text-green-500 font-dark font-extrabold mb-8"> 404</div>
                     <p className="text-2xl md:text-3xl font-light leading-normal mb-8">
-                        Sorry we couldn't find the Pokemon you're looking for
+                        Sorry we couldnt find the Pokemon youre looking for
                     </p>
 
                     <Link href="/dashboard/pokemons" className="px-5 inline py-3 text-sm font-medium leading-5 shadow-2xl text-white transition-all duration-400 border border-transparent rounded-lg focus:outline-none bg-green-600 active:bg-red-600 hover:bg-red-700">Regresar al listado de pokemon</Link>
